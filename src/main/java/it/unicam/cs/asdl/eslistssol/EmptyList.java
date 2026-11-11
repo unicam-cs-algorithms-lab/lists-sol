@@ -2,7 +2,9 @@ package it.unicam.cs.asdl.eslistssol;
 
 
 /**
- * Classe che definisce solo una ADTConsList vuota.
+ * Caso base della definizione ricorsiva di lista.
+ * Non contiene campi e non possiede né testa né coda. Il metodo
+ * {@code cons} crea un nodo, senza modificare questa lista.
  * 
  * @author Luca Tesei
  *
@@ -25,7 +27,8 @@ public final class EmptyList<E> implements ADTConsList<E> {
     }
 
     public ADTConsList<E> cons(E first) {
-        return new ConsList<E>(first);
+        // La vecchia lista vuota è la coda del nuovo nodo.
+        return new ConsList<E>(first, this);
     }
 
 }
